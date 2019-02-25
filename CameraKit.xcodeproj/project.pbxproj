@@ -15,6 +15,10 @@
 		9E3743162224813E0052F98C /* CameraKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743152224813E0052F98C /* CameraKitTests.swift */; };
 		9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743202224871B0052F98C /* AssetGridViewController.swift */; };
 		9E37432322248C840052F98C /* AssetCollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* AssetCollectionListViewController.swift */; };
+		9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374324222497060052F98C /* AssetListTableViewCell.swift */; };
+		9E374327222497600052F98C /* AssetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E374326222497600052F98C /* AssetListTableViewCell.xib */; };
+		9E374329222498550052F98C /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374328222498550052F98C /* UITableView+Additions.swift */; };
+		9E37432B222498800052F98C /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432A222498800052F98C /* UIView+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		9E3743172224813E0052F98C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3743202224871B0052F98C /* AssetGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
 		9E37432222248C840052F98C /* AssetCollectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionListViewController.swift; sourceTree = "<group>"; };
+		9E374324222497060052F98C /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
+		9E374326222497600052F98C /* AssetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetListTableViewCell.xib; sourceTree = "<group>"; };
+		9E374328222498550052F98C /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
+		9E37432A222498800052F98C /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,10 @@
 				9E3743042224813B0052F98C /* Main.storyboard */,
 				9E3743202224871B0052F98C /* AssetGridViewController.swift */,
 				9E37432222248C840052F98C /* AssetCollectionListViewController.swift */,
+				9E374328222498550052F98C /* UITableView+Additions.swift */,
+				9E37432A222498800052F98C /* UIView+Additions.swift */,
+				9E374324222497060052F98C /* AssetListTableViewCell.swift */,
+				9E374326222497600052F98C /* AssetListTableViewCell.xib */,
 				9E3743072224813D0052F98C /* Assets.xcassets */,
 				9E3743092224813D0052F98C /* LaunchScreen.storyboard */,
 				9E37430C2224813D0052F98C /* Info.plist */,
@@ -185,6 +197,7 @@
 			files = (
 				9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */,
 				9E3743082224813D0052F98C /* Assets.xcassets in Resources */,
+				9E374327222497600052F98C /* AssetListTableViewCell.xib in Resources */,
 				9E3743062224813B0052F98C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,9 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */,
 				9E3743032224813B0052F98C /* ViewController.swift in Sources */,
 				9E3743012224813B0052F98C /* AppDelegate.swift in Sources */,
+				9E374329222498550052F98C /* UITableView+Additions.swift in Sources */,
 				9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */,
+				9E37432B222498800052F98C /* UIView+Additions.swift in Sources */,
 				9E37432322248C840052F98C /* AssetCollectionListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

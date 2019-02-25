@@ -13,12 +13,8 @@ class AssetCollectionListViewController: UIViewController {
         static let count = 3
     }
 
-    enum SegueIdentifier: String {
-        case showAllPhotos
-        case showCollection
-    }
-
-    let assetListView = UITableView()
+    let assetTableView = UITableView()
+    let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
     var allPhotos: PHFetchResult<PHAsset>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
@@ -29,7 +25,19 @@ class AssetCollectionListViewController: UIViewController {
 
         setupNavigationButtons()
         setupFetches()
+        setupTableView()
+    }
 
+    private func setupTableView() {
+        assetTableView.delegate = self
+        assetTableView.dataSource = self
+        assetTableView.registerNib(AssetListTableViewCell.self)
+        view.addSubview(assetTableView)
+        assetTableView.translatesAutoresizingMaskIntoConstraints = false
+        assetTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        assetTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        assetTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        assetTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 
     private func setupFetches() {
@@ -48,6 +56,42 @@ class AssetCollectionListViewController: UIViewController {
     @objc
     func cancel() {
         dismiss(animated: true, completion: nil)
+    }
+
+}
+
+extension AssetCollectionListViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = Section(rawValue: section) else { return 0 }
+        switch section {
+        case .allPhotos: return 1
+        case .smartAlbums: return smartAlbums.count
+        case .userCollections: return userCollections.count
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = Section(rawValue: indexPath.section), let cell = tableView.dequeueReusableCell(withIdentifier: AssetListTableViewCell.identifier) as? AssetListTableViewCell else { fatalError("Invalid section raw value") }
+        switch section {
+        case .allPhotos:
+            cell.configure(title: NSLocalizedString("All Photos", comment: ""))
+        case .smartAlbums:
+            let collection = smartAlbums.object(at: indexPath.row)
+            cell.configure(title: collection.localizedTitle)
+        case .userCollections:
+            let collection = userCollections.object(at: indexPath.row)
+            cell.configure(title: collection.localizedTitle)
+        }
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionLocalizedTitles[section]
     }
 
 }
