@@ -3,7 +3,7 @@ import Photos
 import PhotosUI
 import UIKit
 
-class AssetCollectionListViewController: UIViewController {
+class AssetListViewController: UIViewController {
 
     enum Section: Int {
         case allPhotos = 0
@@ -16,7 +16,7 @@ class AssetCollectionListViewController: UIViewController {
     let assetTableView = UITableView()
     let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
-    var allPhotos: PHFetchResult<PHAsset>!
+    var allPhotos: PHFetchResult<PHAssetCollection>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
 
@@ -41,9 +41,9 @@ class AssetCollectionListViewController: UIViewController {
     }
 
     private func setupFetches() {
-        let allPhotosOptions = PHFetchOptions()
-        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        allPhotos = PHAsset.fetchAssets(with: allPhotosOptions)
+//        let allPhotosOptions = PHFetchOptions()
+//        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        allPhotos = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
     }
@@ -60,7 +60,7 @@ class AssetCollectionListViewController: UIViewController {
 
 }
 
-extension AssetCollectionListViewController: UITableViewDataSource, UITableViewDelegate {
+extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.count
@@ -73,6 +73,25 @@ extension AssetCollectionListViewController: UITableViewDataSource, UITableViewD
         case .smartAlbums: return smartAlbums.count
         case .userCollections: return userCollections.count
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid cell selection") }
+        let assetGridViewController = AssetGridViewController()
+        let collection: PHCollection
+        switch section {
+        case .allPhotos:
+            collection = allPhotos.object(at: indexPath.row)
+        case .smartAlbums:
+            collection = smartAlbums.object(at: indexPath.row)
+        case .userCollections:
+            collection = userCollections.object(at: indexPath.row)
+        }
+        guard let assetCollection = collection as? PHAssetCollection else { return }
+        assetGridViewController.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
+        assetGridViewController.assetCollection = assetCollection
+        navigationController?.pushViewController(assetGridViewController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

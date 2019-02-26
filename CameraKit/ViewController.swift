@@ -5,12 +5,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
 
-    var assetCollectionListViewController: AssetCollectionListViewController!
+    var assetListViewController: AssetListViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assetCollectionListViewController = AssetCollectionListViewController()
+        assetListViewController = AssetListViewController()
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -23,10 +23,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
     func presentImagePicker() {
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
-        let imagePickerActionSheet = UIAlertController(title: "Upload",
+        let imagePickerActionSheet = UIAlertController(title: "Browse photos",
                                                        message: nil, preferredStyle: .actionSheet)
         let libraryButton = UIAlertAction(title: "Camera roll", style: .default) { [unowned self] _ in
-            let navigationController = UINavigationController(rootViewController: self.assetCollectionListViewController)
+            let navigationController = UINavigationController(rootViewController: self.assetListViewController)
             self.present(navigationController, animated: true)
         }
         imagePickerActionSheet.addAction(libraryButton)

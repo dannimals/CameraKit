@@ -14,11 +14,14 @@
 		9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743092224813D0052F98C /* LaunchScreen.storyboard */; };
 		9E3743162224813E0052F98C /* CameraKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743152224813E0052F98C /* CameraKitTests.swift */; };
 		9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743202224871B0052F98C /* AssetGridViewController.swift */; };
-		9E37432322248C840052F98C /* AssetCollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* AssetCollectionListViewController.swift */; };
+		9E37432322248C840052F98C /* AssetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* AssetListViewController.swift */; };
 		9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374324222497060052F98C /* AssetListTableViewCell.swift */; };
 		9E374327222497600052F98C /* AssetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E374326222497600052F98C /* AssetListTableViewCell.xib */; };
 		9E374329222498550052F98C /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374328222498550052F98C /* UITableView+Additions.swift */; };
 		9E37432B222498800052F98C /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432A222498800052F98C /* UIView+Additions.swift */; };
+		9E37432D22249E650052F98C /* AssetGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432C22249E650052F98C /* AssetGridCollectionViewCell.swift */; };
+		9E37432F22249EF10052F98C /* AssetGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E37432E22249EF10052F98C /* AssetGridCollectionViewCell.xib */; };
+		9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433222249FF60052F98C /* UICollectionView+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +46,14 @@
 		9E3743152224813E0052F98C /* CameraKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKitTests.swift; sourceTree = "<group>"; };
 		9E3743172224813E0052F98C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3743202224871B0052F98C /* AssetGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
-		9E37432222248C840052F98C /* AssetCollectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionListViewController.swift; sourceTree = "<group>"; };
+		9E37432222248C840052F98C /* AssetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListViewController.swift; sourceTree = "<group>"; };
 		9E374324222497060052F98C /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
 		9E374326222497600052F98C /* AssetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetListTableViewCell.xib; sourceTree = "<group>"; };
 		9E374328222498550052F98C /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		9E37432A222498800052F98C /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		9E37432C22249E650052F98C /* AssetGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridCollectionViewCell.swift; sourceTree = "<group>"; };
+		9E37432E22249EF10052F98C /* AssetGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetGridCollectionViewCell.xib; sourceTree = "<group>"; };
+		9E37433222249FF60052F98C /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,15 +95,13 @@
 		9E3742FF2224813B0052F98C /* CameraKit */ = {
 			isa = PBXGroup;
 			children = (
+				9E37433122249FDE0052F98C /* Extensions */,
+				9E37433022249FBF0052F98C /* Views */,
 				9E3743002224813B0052F98C /* AppDelegate.swift */,
 				9E3743022224813B0052F98C /* ViewController.swift */,
 				9E3743042224813B0052F98C /* Main.storyboard */,
 				9E3743202224871B0052F98C /* AssetGridViewController.swift */,
-				9E37432222248C840052F98C /* AssetCollectionListViewController.swift */,
-				9E374328222498550052F98C /* UITableView+Additions.swift */,
-				9E37432A222498800052F98C /* UIView+Additions.swift */,
-				9E374324222497060052F98C /* AssetListTableViewCell.swift */,
-				9E374326222497600052F98C /* AssetListTableViewCell.xib */,
+				9E37432222248C840052F98C /* AssetListViewController.swift */,
 				9E3743072224813D0052F98C /* Assets.xcassets */,
 				9E3743092224813D0052F98C /* LaunchScreen.storyboard */,
 				9E37430C2224813D0052F98C /* Info.plist */,
@@ -112,6 +116,27 @@
 				9E3743172224813E0052F98C /* Info.plist */,
 			);
 			path = CameraKitTests;
+			sourceTree = "<group>";
+		};
+		9E37433022249FBF0052F98C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E37432C22249E650052F98C /* AssetGridCollectionViewCell.swift */,
+				9E37432E22249EF10052F98C /* AssetGridCollectionViewCell.xib */,
+				9E374324222497060052F98C /* AssetListTableViewCell.swift */,
+				9E374326222497600052F98C /* AssetListTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E37433122249FDE0052F98C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E374328222498550052F98C /* UITableView+Additions.swift */,
+				9E37433222249FF60052F98C /* UICollectionView+Additions.swift */,
+				9E37432A222498800052F98C /* UIView+Additions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +222,7 @@
 			files = (
 				9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */,
 				9E3743082224813D0052F98C /* Assets.xcassets in Resources */,
+				9E37432F22249EF10052F98C /* AssetGridCollectionViewCell.xib in Resources */,
 				9E374327222497600052F98C /* AssetListTableViewCell.xib in Resources */,
 				9E3743062224813B0052F98C /* Main.storyboard in Resources */,
 			);
@@ -219,10 +245,12 @@
 				9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */,
 				9E3743032224813B0052F98C /* ViewController.swift in Sources */,
 				9E3743012224813B0052F98C /* AppDelegate.swift in Sources */,
+				9E37432D22249E650052F98C /* AssetGridCollectionViewCell.swift in Sources */,
 				9E374329222498550052F98C /* UITableView+Additions.swift in Sources */,
+				9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */,
 				9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */,
 				9E37432B222498800052F98C /* UIView+Additions.swift in Sources */,
-				9E37432322248C840052F98C /* AssetCollectionListViewController.swift in Sources */,
+				9E37432322248C840052F98C /* AssetListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
