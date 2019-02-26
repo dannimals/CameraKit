@@ -14,6 +14,8 @@ class AssetListViewController: UIViewController {
     }
 
     let assetTableView = UITableView()
+    let assetManager: AssetManaging = AssetManager()
+
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
     var allPhotos: PHFetchResult<PHAssetCollection>!
@@ -90,7 +92,7 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         guard let assetCollection = collection as? PHAssetCollection else { return }
         assetGridViewController.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
-        assetGridViewController.assetCollection = assetCollection
+        assetGridViewController.configure(assetManager: assetManager)
         navigationController?.pushViewController(assetGridViewController, animated: true)
     }
 

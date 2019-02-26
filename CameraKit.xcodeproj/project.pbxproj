@@ -24,6 +24,8 @@
 		9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433222249FF60052F98C /* UICollectionView+Additions.swift */; };
 		9E3743352225D00A0052F98C /* SelectionBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743342225D0090052F98C /* SelectionBubble.swift */; };
 		9E3743372225D0690052F98C /* Color+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743362225D0690052F98C /* Color+Additions.swift */; };
+		9E3743392225F3310052F98C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743382225F3310052F98C /* AssetManager.swift */; };
+		9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		9E37433222249FF60052F98C /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		9E3743342225D0090052F98C /* SelectionBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionBubble.swift; sourceTree = "<group>"; };
 		9E3743362225D0690052F98C /* Color+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Additions.swift"; sourceTree = "<group>"; };
+		9E3743382225F3310052F98C /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
+		9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				9E37433122249FDE0052F98C /* Extensions */,
 				9E37433022249FBF0052F98C /* Views */,
 				9E3743002224813B0052F98C /* AppDelegate.swift */,
+				9E3743382225F3310052F98C /* AssetManager.swift */,
 				9E3743022224813B0052F98C /* ViewController.swift */,
 				9E3743042224813B0052F98C /* Main.storyboard */,
 				9E3743202224871B0052F98C /* AssetGridViewController.swift */,
@@ -141,6 +146,7 @@
 				9E37433222249FF60052F98C /* UICollectionView+Additions.swift */,
 				9E37432A222498800052F98C /* UIView+Additions.swift */,
 				9E3743362225D0690052F98C /* Color+Additions.swift */,
+				9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,9 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */,
+				9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */,
 				9E3743032224813B0052F98C /* ViewController.swift in Sources */,
 				9E3743372225D0690052F98C /* Color+Additions.swift in Sources */,
 				9E3743012224813B0052F98C /* AppDelegate.swift in Sources */,
+				9E3743392225F3310052F98C /* AssetManager.swift in Sources */,
 				9E37432D22249E650052F98C /* AssetGridCollectionViewCell.swift in Sources */,
 				9E374329222498550052F98C /* UITableView+Additions.swift in Sources */,
 				9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */,

@@ -6,13 +6,16 @@ import UIKit
 class AssetGridViewController: UIViewController {
 
     var fetchResult: PHFetchResult<PHAsset>!
-    var assetCollection: PHAssetCollection!
-
     var gridView: UICollectionView!
     var cellWidth: CGFloat = 0
+    var assetManager: AssetManaging!
 
     private let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
+
+    func configure(assetManager: AssetManaging) {
+        self.assetManager = assetManager
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +54,7 @@ class AssetGridViewController: UIViewController {
 
     private func getGridViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        let columnCount: CGFloat = 4
+        let columnCount: CGFloat = 3
         cellWidth = view.bounds.width / columnCount
         layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         layout.minimumInteritemSpacing = 0
@@ -74,6 +77,12 @@ extension AssetGridViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let assetCollectionViewCell = collectionView.cellForItem(at: indexPath) as? AssetGridCollectionViewCell else { return }
         assetCollectionViewCell.toggleSelection()
+        let asset = fetchResult.object(at: indexPath.item)
+        if assetCollectionViewCell.isSelected {
+            assetManager.addAsset(asset)
+        } else {
+            assetManager.removeAssetIfNeeded(withID: asset.id)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,6 +97,9 @@ extension AssetGridViewController: UICollectionViewDelegate, UICollectionViewDat
                 assetCollectionViewCell.configure(image: image)
             }
         })
+        if assetManager.assets.contains(where: { $0.id == asset.id }) {
+            assetCollectionViewCell.setSelected()
+        }
         return assetCollectionViewCell
     }
 

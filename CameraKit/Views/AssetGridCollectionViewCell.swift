@@ -27,6 +27,13 @@ class AssetGridCollectionViewCell: UICollectionViewCell {
         selectionBubble.setIsEnabled(true, animated: animated)
         selectionBubble.setIsSelected(shouldSelect, animated: animated)
         self.shouldSelect = shouldSelect
+        isSelected = shouldSelect
+    }
+
+    func setSelected() {
+        selectionBubble.setIsEnabled(true, animated: false)
+        selectionBubble.setIsSelected(true, animated: false)
+        isSelected = true
     }
 
 }
