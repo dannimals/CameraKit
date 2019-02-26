@@ -14,7 +14,7 @@ class AssetListViewController: UIViewController {
     }
 
     let assetTableView = UITableView()
-    let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
+    let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
     var allPhotos: PHFetchResult<PHAssetCollection>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
@@ -41,10 +41,10 @@ class AssetListViewController: UIViewController {
     }
 
     private func setupFetches() {
-//        let allPhotosOptions = PHFetchOptions()
-//        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-        allPhotos = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
-        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
+        let allPhotosOptions = PHFetchOptions()
+        allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        allPhotos = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
     }
 
