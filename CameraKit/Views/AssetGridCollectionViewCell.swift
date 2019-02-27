@@ -1,39 +1,64 @@
 
+import Photos
+import PhotosUI
 import UIKit
 
-class AssetGridCollectionViewCell: UICollectionViewCell {
+class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectionBubble: SelectionBubble!
+
+    private let imageManager = PHCachingImageManager()
     
-    var assetIdentifier: String?
+    private var assetIdentifier: String?
+    private var asset: SelectableAsset?
+    private var imageSize: CGSize?
+    private var shouldSelect = false
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        imageView.image = nil
+        reset()
+    }
+
+    private func reset() {
+        asset = nil
         assetIdentifier = nil
+        imageView.image = nil
         selectionBubble.setIsSelected(false, animated: false)
         shouldSelect = false
     }
 
-    func configure(image: UIImage?) {
-        imageView.image = image
+    func configure(asset: SelectableAsset, imageSize: CGSize, isSelected: Bool) {
+        self.asset = asset
+        self.assetIdentifier = asset.id
+        self.imageSize = imageSize
+        self.shouldSelect = isSelected
+        setup()
     }
 
-    private var shouldSelect = false
+    func setupViews() {
+        setSelected(shouldSelect)
+    }
+
+    func setupImages() {
+        guard let asset = asset as? PHAsset, let assetIdentifier = assetIdentifier, let imageSize = imageSize else { return }
+        imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, _ in
+            if asset.id == assetIdentifier {
+                self?.imageView.image = image
+            }
+        })
+    }
+
     func toggleSelection(animated: Bool = true) {
         let shouldSelect = !self.shouldSelect
-        selectionBubble.setIsEnabled(true, animated: animated)
-        selectionBubble.setIsSelected(shouldSelect, animated: animated)
+        setSelected(shouldSelect, animated: true)
         self.shouldSelect = shouldSelect
-        isSelected = shouldSelect
     }
 
-    func setSelected() {
-        selectionBubble.setIsEnabled(true, animated: false)
-        selectionBubble.setIsSelected(true, animated: false)
-        isSelected = true
+    private func setSelected(_ selected: Bool, animated: Bool = false) {
+        selectionBubble.setIsSelected(selected, animated: animated)
+        isSelected = selected
     }
 
 }

@@ -17,8 +17,6 @@ protocol SelectableAsset {
 
 extension PHAsset: SelectableAsset {
 
-    var id: String {
-        return localIdentifier
-    }
+    var id: String { return localIdentifier }
 
 }

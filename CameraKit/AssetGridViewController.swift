@@ -10,7 +10,6 @@ class AssetGridViewController: UIViewController {
     var cellWidth: CGFloat = 0
     var assetManager: AssetManaging!
 
-    private let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
 
     func configure(assetManager: AssetManaging) {
@@ -88,18 +87,8 @@ extension AssetGridViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let assetCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: AssetGridCollectionViewCell.identifier, for: indexPath) as? AssetGridCollectionViewCell else { fatalError("Cannot dequeue AssetGridCollectionViewCell")}
         let asset = fetchResult.object(at: indexPath.item)
-        if asset.mediaSubtypes.contains(.photoLive) {
-            assetCollectionViewCell.configure(image: PHLivePhotoView.livePhotoBadgeImage(options: .overContent))
-        }
-        assetCollectionViewCell.assetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            if assetCollectionViewCell.assetIdentifier == asset.localIdentifier {
-                assetCollectionViewCell.configure(image: image)
-            }
-        })
-        if assetManager.assets.contains(where: { $0.id == asset.id }) {
-            assetCollectionViewCell.setSelected()
-        }
+        let shouldSelect = assetManager.containsAsset(asset)
+        assetCollectionViewCell.configure(asset: asset, imageSize: thumbnailSize, isSelected: shouldSelect)
         return assetCollectionViewCell
     }
 

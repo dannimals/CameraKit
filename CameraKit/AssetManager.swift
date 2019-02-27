@@ -6,6 +6,7 @@ protocol AssetManaging {
 
     var assets: [SelectableAsset] { get }
 
+    func containsAsset(_ asset: SelectableAsset) -> Bool
     func addAsset(_ asset: SelectableAsset)
     func removeAssetIfNeeded(withID id: String)
     func reset()
@@ -19,6 +20,10 @@ class AssetManager: AssetManaging {
 
     func addAsset(_ asset: SelectableAsset) {
         assetMap[asset.id] = asset
+    }
+
+    func containsAsset(_ asset: SelectableAsset) -> Bool {
+        return assets.contains(where: { $0.id == asset.id })
     }
 
     func removeAssetIfNeeded(withID id: String) {
