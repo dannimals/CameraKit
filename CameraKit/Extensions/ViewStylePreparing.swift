@@ -16,12 +16,12 @@ protocol ViewStylePreparing {
 extension ViewStylePreparing {
 
     func setup() {
+        setupViews()
         setupColors()
         setupFonts()
         setupLayers()
         setupText()
         setupImages()
-        setupViews()
     }
 
     func setupColors() {}

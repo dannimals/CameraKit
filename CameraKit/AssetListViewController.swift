@@ -3,7 +3,7 @@ import Photos
 import PhotosUI
 import UIKit
 
-class AssetListViewController: UIViewController {
+public final class AssetListViewController: UIViewController, ViewStylePreparing {
 
     enum Section: Int {
         case allPhotos = 0
@@ -13,8 +13,11 @@ class AssetListViewController: UIViewController {
         static let count = 3
     }
 
+    public weak var publicAssetPickerDelegate: AssetPickerDelegate?
+    weak var internalAssetManagerDelegate: AssetManagerDelegate?
+
     let assetTableView = UITableView()
-    let assetManager: AssetManaging = AssetManager()
+    private var assetManager: AssetManaging = AssetManager()
 
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
@@ -22,9 +25,22 @@ class AssetListViewController: UIViewController {
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
 
-    override func viewDidLoad() {
+    var doneButton: UIBarButtonItem!
+
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
+        setup()
+        assetManager.delegate = self
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateDoneButtonIfNeeded()
+    }
+
+    func setupViews() {
         setupNavigationButtons()
         setupFetches()
         setupTableView()
@@ -53,6 +69,8 @@ class AssetListViewController: UIViewController {
     private func setupNavigationButtons() {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navigationItem.leftBarButtonItem = cancelButton
+        doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButton
     }
 
     @objc
@@ -60,15 +78,33 @@ class AssetListViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    @objc
+    func done() {
+        let phAssets = assetManager.finalizeAndClearAssets().compactMap {$0 as? PHAsset }
+        publicAssetPickerDelegate?.assetPickerDidFinishPickingAssets(phAssets)
+        dismiss(animated: true, completion: nil)
+    }
+
+    private func updateDoneButtonIfNeeded() {
+        doneButton?.isEnabled = !assetManager.assets.isEmpty
+    }
+
+}
+
+extension AssetListViewController: AssetManagerDelegate {
+
+    func assetManager(_ assetManager: AssetManaging, didSelectAssets: [SelectableAsset]) {
+        updateDoneButtonIfNeeded()
+    }
 }
 
 extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return Section.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = Section(rawValue: section) else { return 0 }
         switch section {
         case .allPhotos: return 1
@@ -77,7 +113,7 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid cell selection") }
         let assetGridViewController = AssetGridViewController()
@@ -93,10 +129,11 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let assetCollection = collection as? PHAssetCollection else { return }
         assetGridViewController.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
         assetGridViewController.configure(assetManager: assetManager)
+        assetGridViewController.publicAssetPickerDelegate = publicAssetPickerDelegate
         navigationController?.pushViewController(assetGridViewController, animated: true)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section), let cell = tableView.dequeueReusableCell(withIdentifier: AssetListTableViewCell.identifier) as? AssetListTableViewCell else { fatalError("Invalid section raw value") }
         switch section {
         case .allPhotos:
@@ -111,7 +148,7 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionLocalizedTitles[section]
     }
 

@@ -1,7 +1,7 @@
 
 import Photos
 
-protocol SelectableAsset {
+public protocol SelectableAsset {
 
     var id: String { get }
     var mediaType: PHAssetMediaType { get }
@@ -17,6 +17,6 @@ protocol SelectableAsset {
 
 extension PHAsset: SelectableAsset {
 
-    var id: String { return localIdentifier }
+    public var id: String { return localIdentifier }
 
 }

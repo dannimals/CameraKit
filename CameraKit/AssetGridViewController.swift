@@ -3,23 +3,32 @@ import Photos
 import PhotosUI
 import UIKit
 
-class AssetGridViewController: UIViewController {
+class AssetGridViewController: UIViewController, ViewStylePreparing {
 
     var fetchResult: PHFetchResult<PHAsset>!
     var gridView: UICollectionView!
     var cellWidth: CGFloat = 0
-    var assetManager: AssetManaging!
+    private var assetManager: AssetManaging!
+
+    var doneButton: UIBarButtonItem!
 
     fileprivate var thumbnailSize: CGSize!
 
+    public weak var publicAssetPickerDelegate: AssetPickerDelegate?
+    weak var internalAssetManagerDelegate: AssetManagerDelegate?
+
     func configure(assetManager: AssetManaging) {
         self.assetManager = assetManager
+        self.assetManager.delegate = self
+    }
+
+    private func updateDoneButtonIfNeeded() {
+        doneButton?.isEnabled = !assetManager.assets.isEmpty
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupGridView()
         setup()
     }
 
@@ -32,9 +41,27 @@ class AssetGridViewController: UIViewController {
         thumbnailSize = CGSize(width: cellWidth * scale, height: cellWidth * scale)
     }
 
-    private func setup() {
+    func setupColors() {
         view.backgroundColor = .white
         gridView.backgroundColor = view.backgroundColor
+    }
+
+    func setupViews() {
+        setupNavigationButtons()
+        setupGridView()
+        updateDoneButtonIfNeeded()
+    }
+
+    private func setupNavigationButtons() {
+        doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+
+    @objc
+    func done() {
+        let phAssets = assetManager.finalizeAndClearAssets().compactMap {$0 as? PHAsset }
+        publicAssetPickerDelegate?.assetPickerDidFinishPickingAssets(phAssets)
+        dismiss(animated: true, completion: nil)
     }
 
     private func setupGridView() {
@@ -61,6 +88,13 @@ class AssetGridViewController: UIViewController {
         return layout
     }
 
+}
+
+extension AssetGridViewController: AssetManagerDelegate {
+
+    func assetManager(_ assetManager: AssetManaging, didSelectAssets: [SelectableAsset]) {
+        updateDoneButtonIfNeeded()
+    }
 }
 
 extension AssetGridViewController: UICollectionViewDelegate, UICollectionViewDataSource {
