@@ -29,10 +29,9 @@ class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
         shouldSelect = false
     }
 
-    func configure(asset: SelectableAsset, imageSize: CGSize, isSelected: Bool) {
+    func configure(asset: SelectableAsset, isSelected: Bool) {
         self.asset = asset
         self.assetIdentifier = asset.id
-        self.imageSize = imageSize
         self.shouldSelect = isSelected
         setup()
     }
@@ -42,8 +41,8 @@ class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
     }
 
     func setupImages() {
-        guard let asset = asset as? PHAsset, let assetIdentifier = assetIdentifier, let imageSize = imageSize else { return }
-        imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, _ in
+        guard let asset = asset as? PHAsset, let assetIdentifier = assetIdentifier else { return }
+        imageManager.requestImage(for: asset, targetSize: bounds.size, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, _ in
             if asset.id == assetIdentifier {
                 self?.imageView.image = image
             }

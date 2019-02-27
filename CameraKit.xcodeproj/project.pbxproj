@@ -27,6 +27,7 @@
 		9E3743392225F3310052F98C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743382225F3310052F98C /* AssetManager.swift */; };
 		9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */; };
 		9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */; };
+		9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		9E3743382225F3310052F98C /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Additions.swift"; sourceTree = "<group>"; };
 		9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylePreparing.swift; sourceTree = "<group>"; };
+		9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		9E3742FF2224813B0052F98C /* CameraKit */ = {
 			isa = PBXGroup;
 			children = (
+				9E50FEEE22273C08001048D1 /* DataSources */,
 				9E37430C2224813D0052F98C /* Info.plist */,
 				9E3743002224813B0052F98C /* AppDelegate.swift */,
 				9E3743202224871B0052F98C /* AssetGridViewController.swift */,
@@ -152,6 +155,14 @@
 				9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E50FEEE22273C08001048D1 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 				9E37432B222498800052F98C /* UIView+Additions.swift in Sources */,
 				9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */,
 				9E3743352225D00A0052F98C /* SelectionBubble.swift in Sources */,
+				9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */,
 				9E37432322248C840052F98C /* AssetListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

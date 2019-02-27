@@ -18,8 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AcO-uw-BpC">
+                        <rect key="frame" x="8" y="6" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="OrU-Ki-SQ4"/>
+                            <constraint firstAttribute="width" constant="32" id="btE-h9-XOf"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smart Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3Z-nZ-UFA">
-                        <rect key="frame" x="16" y="11.5" width="127.5" height="21"/>
+                        <rect key="frame" x="48" y="11.5" width="127.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -27,10 +34,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="A3Z-nZ-UFA" firstAttribute="centerY" secondItem="XQH-jD-tG0" secondAttribute="centerY" id="Ib0-35-pNd"/>
-                    <constraint firstItem="A3Z-nZ-UFA" firstAttribute="leading" secondItem="XQH-jD-tG0" secondAttribute="leading" constant="16" id="Jbd-1B-wMe"/>
+                    <constraint firstItem="A3Z-nZ-UFA" firstAttribute="leading" secondItem="AcO-uw-BpC" secondAttribute="trailing" constant="8" id="XWu-8J-JAP"/>
+                    <constraint firstItem="AcO-uw-BpC" firstAttribute="centerY" secondItem="XQH-jD-tG0" secondAttribute="centerY" id="ZNJ-oJ-Ksa"/>
+                    <constraint firstItem="AcO-uw-BpC" firstAttribute="leading" secondItem="XQH-jD-tG0" secondAttribute="leading" constant="8" id="haf-Cu-wDr"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="albumImageView" destination="AcO-uw-BpC" id="K2l-i2-A7d"/>
                 <outlet property="titleLabel" destination="A3Z-nZ-UFA" id="WMf-Sl-gXW"/>
             </connections>
             <point key="canvasLocation" x="-431" y="3"/>

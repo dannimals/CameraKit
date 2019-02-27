@@ -133,8 +133,9 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
             collection = userCollections.object(at: indexPath.row)
         }
         guard let assetCollection = collection as? PHAssetCollection else { return }
-        assetGridViewController.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
-        assetGridViewController.configure(assetManager: assetManager)
+        let fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
+        let dataSource = AssetGridDataSource(fetchResult: fetchResult, assetManager: assetManager)
+        assetGridViewController.configure(dataSource: dataSource)
         assetGridViewController.publicAssetPickerDelegate = publicAssetPickerDelegate
         navigationController?.pushViewController(assetGridViewController, animated: true)
     }
@@ -144,6 +145,12 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case .allPhotos:
             cell.configure(title: NSLocalizedString("All Photos", comment: ""))
+//            if collection.estimatedAssetCount > 0 && collection.estimatedAssetCount != NSNotFound {
+//                let asset = PHAsset.fetchAssets(in: collection, options: nil).object(at: 0)
+//                PHCachingImageManager.default().requestImage(for: asset, targetSize: cell.imageSize, contentMode: .aspectFill, options: nil) { (image, _) in
+//                    cell.imageView?.image = image
+//                }
+//            }
         case .smartAlbums:
             let collection = smartAlbums.object(at: indexPath.row)
             cell.configure(title: collection.localizedTitle)
@@ -156,6 +163,10 @@ extension AssetListViewController: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionLocalizedTitles[section]
+    }
+
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 
 }
