@@ -1,4 +1,5 @@
 
+import PhotosUI
 import UIKit
 
 class ViewController: UIViewController {
@@ -11,6 +12,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         assetListViewController = AssetListViewController()
+        assetListViewController.publicAssetPickerDelegate = self
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -34,5 +36,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         imagePickerActionSheet.addAction(cancelButton)
         present(imagePickerActionSheet, animated: true)
     }
+}
+
+extension ViewController: AssetPickerDelegate {
+
+    func assetPickerDidFinishPickingAssets(_ assets: [PHAsset]) {
+        debugPrint(assets)
+    }
+
 }
 

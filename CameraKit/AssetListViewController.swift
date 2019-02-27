@@ -1,7 +1,12 @@
 
-import Photos
 import PhotosUI
 import UIKit
+
+public protocol AssetPickerDelegate: class {
+
+    func assetPickerDidFinishPickingAssets(_ assets: [PHAsset])
+
+}
 
 public final class AssetListViewController: UIViewController, ViewStylePreparing {
 
@@ -75,6 +80,7 @@ public final class AssetListViewController: UIViewController, ViewStylePreparing
 
     @objc
     func cancel() {
+        _ = assetManager.finalizeAndClearAssets()
         dismiss(animated: true, completion: nil)
     }
 

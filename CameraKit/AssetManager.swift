@@ -1,13 +1,5 @@
 
-import Photos
-import PhotosUI
 import UIKit
-
-public protocol AssetPickerDelegate: class {
-
-    func assetPickerDidFinishPickingAssets(_ assets: [PHAsset])
-
-}
 
 protocol AssetManagerDelegate: class {
 
