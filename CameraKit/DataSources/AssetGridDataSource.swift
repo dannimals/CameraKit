@@ -24,7 +24,9 @@ class AssetGridDataSource: NSObject, AssetGridDataProviding {
     }
 
     init(assetCollection: PHAssetCollection, assetManager: AssetManaging) {
-        self.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
+        let dateSortOption = PHFetchOptions()
+        dateSortOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        self.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: dateSortOption)
         self.assetManager = assetManager
     }
 
