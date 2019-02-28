@@ -55,10 +55,11 @@ class AssetListTableViewCell: UITableViewCell, ViewStylePreparing {
     func configure(collection: PHAssetCollection, isAllPhotos: Bool) {
         titleLabel.text = isAllPhotos ? NSLocalizedString("All Photos", comment: "All Photos") : collection.localizedTitle
         let fetchedAssets = PHAsset.fetchAssets(in: collection, options: nil)
+        itemCountLabel.text = "\(fetchedAssets.count) items"
+        guard fetchedAssets.count > 0 else { return }
         let firstAsset = fetchedAssets.firstObject
         assetIdentifier = firstAsset?.id
         setImage(forAsset: firstAsset)
-        itemCountLabel.text = "\(fetchedAssets.count) items"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
