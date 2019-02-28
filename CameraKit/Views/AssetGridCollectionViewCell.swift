@@ -40,6 +40,10 @@ class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
         setSelected(shouldSelect)
     }
 
+    func setupColors() {
+        contentView.backgroundColor = .customBlack
+    }
+
     func setupImages() {
         guard let asset = asset as? PHAsset, let assetIdentifier = assetIdentifier else { return }
         imageManager.requestImage(for: asset, targetSize: bounds.size, contentMode: .aspectFill, options: nil, resultHandler: { [weak self] image, _ in

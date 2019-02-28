@@ -26,6 +26,14 @@ class AssetListTableViewCell: UITableViewCell, ViewStylePreparing {
         albumImageView.layer.cornerRadius = 8
     }
 
+    func setupColors() {
+        contentView.backgroundColor = .customBlack
+        titleLabel.textColor = .customWhite
+        let selectedBackground = UIView()
+        selectedBackground.backgroundColor = .selectedCellColor
+        selectedBackgroundView = selectedBackground
+    }
+
     func configure(title: String?) {
         titleLabel.text = title
     }

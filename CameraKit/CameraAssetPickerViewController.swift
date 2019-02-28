@@ -8,21 +8,6 @@ public protocol CameraAssetPickerDelegate: class {
 
 }
 
-struct CameraAssetPickerNavigationCoordinator {
-
-    let navigationController: UINavigationController?
-    weak var cameraAssetPickerDelegate: CameraAssetPickerDelegate?
-
-    init(navigationController: UINavigationController?, cameraAssetPickerDelegate: CameraAssetPickerDelegate?) {
-        self.navigationController = navigationController
-        self.cameraAssetPickerDelegate = cameraAssetPickerDelegate
-    }
-
-    func showAssetGridViewController(_ assetGridViewController: AssetGridViewController) {
-
-    }
-}
-
 public final class CameraAssetPickerViewController: UIViewController, ViewStylePreparing {
 
     public weak var cameraAssetPickerDelegate: CameraAssetPickerDelegate?
@@ -64,7 +49,13 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
         setupTableView()
     }
 
+    func setupColors() {
+        view.backgroundColor = .customBlack
+        assetTableView.backgroundColor = view.backgroundColor
+    }
+
     private func setupTableView() {
+        assetTableView.separatorStyle = .none
         assetTableView.delegate = self
         assetTableView.dataSource = dataSource
         assetTableView.registerNib(AssetListTableViewCell.self)

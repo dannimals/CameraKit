@@ -35,7 +35,7 @@ class AssetGridViewController: UIViewController, ViewStylePreparing {
     }
 
     func setupColors() {
-        view.backgroundColor = .white
+        view.backgroundColor = .customBlack
         gridView.backgroundColor = view.backgroundColor
     }
 
