@@ -25,7 +25,7 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
     }
 
     var allPhotos: PHFetchResult<PHAssetCollection>!
-    var smartAlbums: PHFetchResult<PHAssetCollection>!
+    var smartAlbums: [PHAssetCollection] = []
     var userCollections: PHFetchResult<PHCollection>!
     let assetManager: AssetManaging
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
@@ -51,20 +51,32 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
     func collectionForIndexPath(_ indexPath: IndexPath) -> PHAssetCollection? {
         guard let section = Section(rawValue: indexPath.section) else { return nil }
         switch section {
-        case .allPhotos:
-            return allPhotos.object(at: indexPath.row)
-        case .smartAlbums:
-            return smartAlbums.object(at: indexPath.row)
-        case .userCollections:
-            return userCollections.object(at: indexPath.row) as? PHAssetCollection
+        case .allPhotos: return allPhotos[indexPath.row]
+        case .smartAlbums: return smartAlbums[indexPath.row]
+        case .userCollections: return userCollections[indexPath.row] as? PHAssetCollection
         }
     }
 
     private func setupFetches() {
+        let endDateSort = PHFetchOptions()
+        endDateSort.sortDescriptors = [NSSortDescriptor(key: "endDate", ascending: true)]
         allPhotos = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
-        smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+        smartAlbums = filteredSmartAlbums()
         userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
     }
+
+    private func filteredSmartAlbums() -> [PHAssetCollection] {
+        let filterAlbumTypes: [PHAssetCollectionSubtype] = [.smartAlbumRecentlyAdded, .smartAlbumVideos, .smartAlbumFavorites,
+                                                            .smartAlbumScreenshots, .smartAlbumSelfPortraits]
+        let allSmartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+        var smartAlbums = [PHAssetCollection]()
+        allSmartAlbums.enumerateObjects { (album, _, _) in
+            guard filterAlbumTypes.contains(album.assetCollectionSubtype) else { return }
+            smartAlbums.append(album)
+        }
+        return smartAlbums
+    }
+
 }
 
 extension CameraAssetPickerDataSource {

@@ -11,7 +11,6 @@ protocol AssetGridDataProviding: UICollectionViewDataSource, UICollectionViewDel
 
 class AssetGridDataSource: NSObject, AssetGridDataProviding {
 
-
     let fetchResult: PHFetchResult<PHAsset>!
     var assetManager: AssetManaging
 
