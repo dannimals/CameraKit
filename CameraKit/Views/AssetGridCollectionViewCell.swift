@@ -38,6 +38,7 @@ class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
 
     func setupViews() {
         setSelected(shouldSelect)
+        imageView.contentMode = .scaleAspectFill
     }
 
     func setupColors() {

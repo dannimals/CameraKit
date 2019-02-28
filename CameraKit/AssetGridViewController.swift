@@ -87,4 +87,5 @@ extension AssetGridViewController: AssetManagerDelegate {
     func assetManager(_ assetManager: AssetManaging, didSelectAssets: [SelectableAsset]) {
         updateDoneButtonIfNeeded()
     }
+
 }

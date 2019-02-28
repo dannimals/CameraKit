@@ -7,6 +7,7 @@ protocol CameraAssetPickerDataProviding:  UITableViewDataSource {
     var assetManager: AssetManaging { get }
     var hasAssets: Bool { get }
     var finalizedAssets: [PHAsset] { get }
+    var sectionLocalizedTitles: [String] { get }
 
     func resetAssets()
     func collectionForIndexPath(_ indexPath: IndexPath) -> PHAssetCollection?
@@ -23,6 +24,12 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
         static let count = 3
     }
 
+    var allPhotos: PHFetchResult<PHAssetCollection>!
+    var smartAlbums: PHFetchResult<PHAssetCollection>!
+    var userCollections: PHFetchResult<PHCollection>!
+    let assetManager: AssetManaging
+    let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
+
     var hasAssets: Bool {
         return !assetManager.assets.isEmpty
     }
@@ -31,21 +38,14 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
         return assetManager.finalizeAndClearAssets().compactMap { $0 as? PHAsset }
     }
 
-    func resetAssets() {
-        _ = assetManager.finalizeAndClearAssets()
-    }
-
-    var allPhotos: PHFetchResult<PHAssetCollection>!
-    var smartAlbums: PHFetchResult<PHAssetCollection>!
-    var userCollections: PHFetchResult<PHCollection>!
-    let assetManager: AssetManaging
-
-    let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
-
     init(assetManager: AssetManaging = AssetManager()) {
         self.assetManager = assetManager
         super.init()
         setupFetches()
+    }
+
+    func resetAssets() {
+        _ = assetManager.finalizeAndClearAssets()
     }
 
     func collectionForIndexPath(_ indexPath: IndexPath) -> PHAssetCollection? {
@@ -85,28 +85,10 @@ extension CameraAssetPickerDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = Section(rawValue: indexPath.section), let cell = tableView.dequeueReusableCell(withIdentifier: AssetListTableViewCell.identifier) as? AssetListTableViewCell else { fatalError("Invalid section raw value") }
-        switch section {
-        case .allPhotos:
-            cell.configure(title: NSLocalizedString("All Photos", comment: ""))
-            //            if collection.estimatedAssetCount > 0 && collection.estimatedAssetCount != NSNotFound {
-            //                let asset = PHAsset.fetchAssets(in: collection, options: nil).object(at: 0)
-            //                PHCachingImageManager.default().requestImage(for: asset, targetSize: cell.imageSize, contentMode: .aspectFill, options: nil) { (image, _) in
-            //                    cell.imageView?.image = image
-            //                }
-        //            }
-        case .smartAlbums:
-            let collection = smartAlbums.object(at: indexPath.row)
-            cell.configure(title: collection.localizedTitle)
-        case .userCollections:
-            let collection = userCollections.object(at: indexPath.row)
-            cell.configure(title: collection.localizedTitle)
-        }
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionLocalizedTitles[section]
+        guard let assetCollection = collectionForIndexPath(indexPath), let assetListCell = tableView.dequeueReusableCell(withIdentifier: AssetListTableViewCell.identifier) as? AssetListTableViewCell else { fatalError("Invalid section raw value") }
+        let isAllPhotos = indexPath.section == 0
+        assetListCell.configure(collection: assetCollection, isAllPhotos: isAllPhotos)
+        return assetListCell
     }
 
 }
