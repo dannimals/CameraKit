@@ -5,8 +5,8 @@ import UIKit
 
 class AssetGridViewController: UIViewController, ViewStylePreparing {
 
-    public weak var publicAssetPickerDelegate: AssetPickerDelegate?
-    weak var internalAssetManagerDelegate: AssetManagerDelegate?
+    public weak var cameraAssetPickerDelegate: CameraAssetPickerDelegate?
+    weak var assetManagerDelegate: AssetManagerDelegate?
 
     private var gridView: UICollectionView!
     private var doneButton: UIBarButtonItem!
@@ -52,7 +52,7 @@ class AssetGridViewController: UIViewController, ViewStylePreparing {
 
     @objc
     func done() {
-        publicAssetPickerDelegate?.assetPickerDidFinishPickingAssets(dataSource.finalizedAssets)
+        cameraAssetPickerDelegate?.assetPickerDidFinishPickingAssets(dataSource.finalizedAssets)
         dismiss(animated: true, completion: nil)
     }
 

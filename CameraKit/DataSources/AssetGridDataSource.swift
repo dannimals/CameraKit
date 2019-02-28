@@ -6,7 +6,7 @@ protocol AssetGridDataProviding: UICollectionViewDataSource, UICollectionViewDel
 
     var hasAssets: Bool { get }
     var finalizedAssets: [PHAsset] { get }
-    
+
 }
 
 class AssetGridDataSource: NSObject, AssetGridDataProviding {
@@ -23,8 +23,8 @@ class AssetGridDataSource: NSObject, AssetGridDataProviding {
         return assetManager.finalizeAndClearAssets().compactMap { $0 as? PHAsset }
     }
 
-    init(fetchResult: PHFetchResult<PHAsset>, assetManager: AssetManaging) {
-        self.fetchResult = fetchResult
+    init(assetCollection: PHAssetCollection, assetManager: AssetManaging) {
+        self.fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
         self.assetManager = assetManager
     }
 

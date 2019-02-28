@@ -14,7 +14,7 @@
 		9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743092224813D0052F98C /* LaunchScreen.storyboard */; };
 		9E3743162224813E0052F98C /* CameraKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743152224813E0052F98C /* CameraKitTests.swift */; };
 		9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743202224871B0052F98C /* AssetGridViewController.swift */; };
-		9E37432322248C840052F98C /* AssetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* AssetListViewController.swift */; };
+		9E37432322248C840052F98C /* CameraAssetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* CameraAssetPickerViewController.swift */; };
 		9E374325222497060052F98C /* AssetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374324222497060052F98C /* AssetListTableViewCell.swift */; };
 		9E374327222497600052F98C /* AssetListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E374326222497600052F98C /* AssetListTableViewCell.xib */; };
 		9E374329222498550052F98C /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374328222498550052F98C /* UITableView+Additions.swift */; };
@@ -28,6 +28,7 @@
 		9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */; };
 		9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */; };
 		9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */; };
+		9E50FEF22227783E001048D1 /* CameraAssetPickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEF12227783E001048D1 /* CameraAssetPickerDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,7 @@
 		9E3743152224813E0052F98C /* CameraKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKitTests.swift; sourceTree = "<group>"; };
 		9E3743172224813E0052F98C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3743202224871B0052F98C /* AssetGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
-		9E37432222248C840052F98C /* AssetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListViewController.swift; sourceTree = "<group>"; };
+		9E37432222248C840052F98C /* CameraAssetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAssetPickerViewController.swift; sourceTree = "<group>"; };
 		9E374324222497060052F98C /* AssetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListTableViewCell.swift; sourceTree = "<group>"; };
 		9E374326222497600052F98C /* AssetListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetListTableViewCell.xib; sourceTree = "<group>"; };
 		9E374328222498550052F98C /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Additions.swift"; sourceTree = "<group>"; };
 		9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylePreparing.swift; sourceTree = "<group>"; };
 		9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridDataSource.swift; sourceTree = "<group>"; };
+		9E50FEF12227783E001048D1 /* CameraAssetPickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAssetPickerDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,7 @@
 				9E37430C2224813D0052F98C /* Info.plist */,
 				9E3743002224813B0052F98C /* AppDelegate.swift */,
 				9E3743202224871B0052F98C /* AssetGridViewController.swift */,
-				9E37432222248C840052F98C /* AssetListViewController.swift */,
+				9E37432222248C840052F98C /* CameraAssetPickerViewController.swift */,
 				9E3743382225F3310052F98C /* AssetManager.swift */,
 				9E3743022224813B0052F98C /* ViewController.swift */,
 				9E3743072224813D0052F98C /* Assets.xcassets */,
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */,
+				9E50FEF12227783E001048D1 /* CameraAssetPickerDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -278,11 +281,12 @@
 				9E374329222498550052F98C /* UITableView+Additions.swift in Sources */,
 				9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */,
 				9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */,
+				9E50FEF22227783E001048D1 /* CameraAssetPickerDataSource.swift in Sources */,
 				9E37432B222498800052F98C /* UIView+Additions.swift in Sources */,
 				9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */,
 				9E3743352225D00A0052F98C /* SelectionBubble.swift in Sources */,
 				9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */,
-				9E37432322248C840052F98C /* AssetListViewController.swift in Sources */,
+				9E37432322248C840052F98C /* CameraAssetPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

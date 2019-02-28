@@ -6,13 +6,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
 
-    var assetListViewController: AssetListViewController!
+    var assetPickerViewController: CameraAssetPickerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assetListViewController = AssetListViewController()
-        assetListViewController.publicAssetPickerDelegate = self
+        assetPickerViewController = CameraAssetPickerViewController()
+        assetPickerViewController.cameraAssetPickerDelegate = self
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -28,7 +28,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         let imagePickerActionSheet = UIAlertController(title: "Browse photos",
                                                        message: nil, preferredStyle: .actionSheet)
         let libraryButton = UIAlertAction(title: "Camera roll", style: .default) { [unowned self] _ in
-            let navigationController = UINavigationController(rootViewController: self.assetListViewController)
+            let navigationController = UINavigationController(rootViewController: self.assetPickerViewController)
             self.present(navigationController, animated: true)
         }
         imagePickerActionSheet.addAction(libraryButton)
@@ -38,7 +38,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
-extension ViewController: AssetPickerDelegate {
+extension ViewController: CameraAssetPickerDelegate {
 
     func assetPickerDidFinishPickingAssets(_ assets: [PHAsset]) {
         debugPrint(assets)
