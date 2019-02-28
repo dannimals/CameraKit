@@ -29,6 +29,7 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
     var userCollections: PHFetchResult<PHCollection>!
     let assetManager: AssetManaging
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
+    private var tableViewSections: [Section] = []
 
     var hasAssets: Bool {
         return !assetManager.assets.isEmpty
@@ -42,6 +43,7 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
         self.assetManager = assetManager
         super.init()
         setupFetches()
+        setupTableViewSections()
     }
 
     func resetAssets() {
@@ -49,12 +51,18 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
     }
 
     func collectionForIndexPath(_ indexPath: IndexPath) -> PHAssetCollection? {
-        guard let section = Section(rawValue: indexPath.section) else { return nil }
-        switch section {
+        let tableViewSection = tableViewSections[indexPath.section]
+        switch tableViewSection {
         case .allPhotos: return allPhotos[indexPath.row]
         case .smartAlbums: return smartAlbums[indexPath.row]
         case .userCollections: return userCollections[indexPath.row] as? PHAssetCollection
         }
+    }
+
+    private func setupTableViewSections() {
+        if allPhotos.count > 0 { tableViewSections.append(Section.allPhotos) }
+        if smartAlbums.count > 0 { tableViewSections.append(Section.smartAlbums) }
+        if userCollections.count > 0 { tableViewSections.append(Section.userCollections) }
     }
 
     private func setupFetches() {
@@ -82,12 +90,12 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
 extension CameraAssetPickerDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.count
+        return tableViewSections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = Section(rawValue: section) else { return 0 }
-        switch section {
+        let tableViewSection = tableViewSections[section]
+        switch tableViewSection {
         case .allPhotos: return 1
         case .smartAlbums: return smartAlbums.count
         case .userCollections: return userCollections.count
