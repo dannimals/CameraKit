@@ -10,4 +10,10 @@ class UIViewAdditionsTests: XCTestCase {
         XCTAssertEqual(identifier, "AlbumListTableViewCell")
     }
 
+    func testInstantiateFromNib() {
+        let albumListCell = AlbumListTableViewCell.instantiateFromNib()
+        XCTAssertEqual(AlbumListTableViewCell.nibName, "AlbumListTableViewCell")
+        XCTAssertNotNil(albumListCell)
+    }
+
 }

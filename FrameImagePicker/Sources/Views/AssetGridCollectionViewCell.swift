@@ -3,7 +3,7 @@ import Photos
 import PhotosUI
 import UIKit
 
-class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing {
+class AssetGridCollectionViewCell: UICollectionViewCell, ViewStylePreparing, NibRepresentable {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectionBubble: SelectionBubble!
