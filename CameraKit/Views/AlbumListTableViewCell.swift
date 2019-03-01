@@ -2,7 +2,7 @@
 import PhotosUI
 import UIKit
 
-class AssetListTableViewCell: UITableViewCell, ViewStylePreparing {
+class AlbumListTableViewCell: UITableViewCell, ViewStylePreparing {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!

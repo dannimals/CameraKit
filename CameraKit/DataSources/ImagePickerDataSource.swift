@@ -15,7 +15,7 @@ protocol CameraAssetPickerDataProviding:  UITableViewDataSource {
 
 }
 
-class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
+class ImagePickerDataSource: NSObject, CameraAssetPickerDataProviding {
 
     enum Section: Int {
         case allPhotos = 0
@@ -86,7 +86,7 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
 
 }
 
-extension CameraAssetPickerDataSource {
+extension ImagePickerDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewSections.count
@@ -102,10 +102,10 @@ extension CameraAssetPickerDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let assetCollection = collectionForIndexPath(indexPath), let assetListCell = tableView.dequeueReusableCell(withIdentifier: AssetListTableViewCell.identifier) as? AssetListTableViewCell else { fatalError("Invalid section raw value") }
+        guard let assetCollection = collectionForIndexPath(indexPath), let albumListTableViewCell = tableView.dequeueReusableCell(withIdentifier: AlbumListTableViewCell.identifier) as? AlbumListTableViewCell else { fatalError("Invalid section raw value") }
         let isAllPhotos = indexPath.section == 0
-        assetListCell.configure(collection: assetCollection, isAllPhotos: isAllPhotos)
-        return assetListCell
+        albumListTableViewCell.configure(collection: assetCollection, isAllPhotos: isAllPhotos)
+        return albumListTableViewCell
     }
 
 }

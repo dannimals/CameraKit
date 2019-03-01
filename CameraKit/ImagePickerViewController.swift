@@ -2,15 +2,25 @@
 import PhotosUI
 import UIKit
 
-public protocol CameraAssetPickerDelegate: class {
+public protocol ImagePickerDelegate: class {
 
-    func assetPickerDidFinishPickingAssets(_ assets: [PHAsset])
+    func imagePickerDidFinishPickingAssets(_ assets: [PHAsset])
 
 }
 
-public final class CameraAssetPickerViewController: UIViewController, ViewStylePreparing {
+public enum ImagePickerError: Error {
+    case invalidPermission
 
-    public weak var cameraAssetPickerDelegate: CameraAssetPickerDelegate?
+    public var localizedDescription: String {
+        switch self {
+        default: return "You must first obtain photo access permission from user."
+        }
+    }
+}
+
+public final class ImagePickerViewController: UIViewController, ViewStylePreparing {
+
+    public weak var imagePickerDelegate: ImagePickerDelegate?
     weak var assetManagerDelegate: AssetManagerDelegate?
 
     let assetTableView = UITableView(frame: .zero, style: .grouped)
@@ -19,17 +29,20 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
 
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        commonInit()
+
+        try? commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+
+        try? commonInit()
     }
 
-    func commonInit() {
+    func commonInit() throws {
+        guard PHPhotoLibrary.authorizationStatus() == .authorized else { throw ImagePickerError.invalidPermission }
         let assetManager = AssetManager()
-        dataSource = CameraAssetPickerDataSource(assetManager: assetManager)
+        dataSource = ImagePickerDataSource(assetManager: assetManager)
     }
 
     public override func viewDidLoad() {
@@ -63,7 +76,7 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
         assetTableView.separatorStyle = .none
         assetTableView.delegate = self
         assetTableView.dataSource = dataSource
-        assetTableView.registerNib(AssetListTableViewCell.self)
+        assetTableView.registerNib(AlbumListTableViewCell.self)
         assetTableView.register(AssetListHeaderView.self, forHeaderFooterViewReuseIdentifier: AssetListHeaderView.identifier)
         view.addSubview(assetTableView)
         assetTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +101,7 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
 
     @objc
     func done() {
-        cameraAssetPickerDelegate?.assetPickerDidFinishPickingAssets(dataSource.finalizedAssets)
+        imagePickerDelegate?.imagePickerDidFinishPickingAssets(dataSource.finalizedAssets)
         dismiss(animated: true, completion: nil)
     }
 
@@ -102,7 +115,7 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
 
 }
 
-extension CameraAssetPickerViewController: UITableViewDelegate {
+extension ImagePickerViewController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -110,7 +123,7 @@ extension CameraAssetPickerViewController: UITableViewDelegate {
         let assetGridViewController = AssetGridViewController()
         let gridDataSource = AssetGridDataSource(assetCollection: assetCollection, assetManager: dataSource.assetManager)
         assetGridViewController.configure(dataSource: gridDataSource)
-        assetGridViewController.cameraAssetPickerDelegate = cameraAssetPickerDelegate
+        assetGridViewController.imagePickerDelegate = imagePickerDelegate
         navigationController?.pushViewController(assetGridViewController, animated: true)
     }
 

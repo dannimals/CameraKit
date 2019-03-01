@@ -6,13 +6,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
 
-    var assetPickerViewController: CameraAssetPickerViewController!
+    var assetPickerViewController: ImagePickerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        assetPickerViewController = CameraAssetPickerViewController()
-        assetPickerViewController.cameraAssetPickerDelegate = self
+        assetPickerViewController = ImagePickerViewController()
+        assetPickerViewController.imagePickerDelegate = self
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -38,9 +38,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
-extension ViewController: CameraAssetPickerDelegate {
+extension ViewController: ImagePickerDelegate {
 
-    func assetPickerDidFinishPickingAssets(_ assets: [PHAsset]) {
+    func imagePickerDidFinishPickingAssets(_ assets: [PHAsset]) {
         debugPrint(assets)
     }
 
