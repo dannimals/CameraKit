@@ -102,7 +102,8 @@ extension ImagePickerDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let assetCollection = collectionForIndexPath(indexPath), let albumListTableViewCell = tableView.dequeueReusableCell(withIdentifier: AlbumListTableViewCell.identifier) as? AlbumListTableViewCell else { fatalError("Invalid section raw value") }
+        guard let assetCollection = collectionForIndexPath(indexPath) else { fatalError("Invalid section raw value") }
+        let albumListTableViewCell: AlbumListTableViewCell = tableView.dequeueCell(forIndexPath: indexPath)
         let isAllPhotos = indexPath.section == 0
         albumListTableViewCell.configure(collection: assetCollection, isAllPhotos: isAllPhotos)
         return albumListTableViewCell

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E21CC882229A6DB002D4435 /* UITableViewAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC872229A6DB002D4435 /* UITableViewAdditionsTests.swift */; };
+		9E21CC8A2229A7E5002D4435 /* PHAssetAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC892229A7E5002D4435 /* PHAssetAdditionsTests.swift */; };
+		9E21CC8C2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC8B2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift */; };
+		9E21CC8E2229AA39002D4435 /* UIViewAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC8D2229AA39002D4435 /* UIViewAdditionsTests.swift */; };
+		9E21CC902229AA76002D4435 /* ViewStylePreparingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC8F2229AA76002D4435 /* ViewStylePreparingTests.swift */; };
+		9E21CC922229ABC1002D4435 /* ColorAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC912229ABC1002D4435 /* ColorAdditionsTests.swift */; };
 		9E3743012224813B0052F98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743002224813B0052F98C /* AppDelegate.swift */; };
 		9E3743032224813B0052F98C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743022224813B0052F98C /* ViewController.swift */; };
 		9E3743062224813B0052F98C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743042224813B0052F98C /* Main.storyboard */; };
@@ -82,6 +88,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E21CC872229A6DB002D4435 /* UITableViewAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewAdditionsTests.swift; sourceTree = "<group>"; };
+		9E21CC892229A7E5002D4435 /* PHAssetAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetAdditionsTests.swift; sourceTree = "<group>"; };
+		9E21CC8B2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewAdditionsTests.swift; sourceTree = "<group>"; };
+		9E21CC8D2229AA39002D4435 /* UIViewAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAdditionsTests.swift; sourceTree = "<group>"; };
+		9E21CC8F2229AA76002D4435 /* ViewStylePreparingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStylePreparingTests.swift; sourceTree = "<group>"; };
+		9E21CC912229ABC1002D4435 /* ColorAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdditionsTests.swift; sourceTree = "<group>"; };
 		9E3742FD2224813B0052F98C /* CameraKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3743002224813B0052F98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E3743022224813B0052F98C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +317,12 @@
 		9E5812C02229965700B062B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9E21CC912229ABC1002D4435 /* ColorAdditionsTests.swift */,
+				9E21CC892229A7E5002D4435 /* PHAssetAdditionsTests.swift */,
+				9E21CC8B2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift */,
+				9E21CC872229A6DB002D4435 /* UITableViewAdditionsTests.swift */,
+				9E21CC8D2229AA39002D4435 /* UIViewAdditionsTests.swift */,
+				9E21CC8F2229AA76002D4435 /* ViewStylePreparingTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -531,6 +549,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5812AC22298F9900B062B6 /* FrameImagePickerTests.swift in Sources */,
+				9E21CC902229AA76002D4435 /* ViewStylePreparingTests.swift in Sources */,
+				9E21CC8A2229A7E5002D4435 /* PHAssetAdditionsTests.swift in Sources */,
+				9E21CC8C2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift in Sources */,
+				9E21CC882229A6DB002D4435 /* UITableViewAdditionsTests.swift in Sources */,
+				9E21CC922229ABC1002D4435 /* ColorAdditionsTests.swift in Sources */,
+				9E21CC8E2229AA39002D4435 /* UIViewAdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

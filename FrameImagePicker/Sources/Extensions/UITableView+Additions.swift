@@ -1,15 +1,18 @@
 
 import UIKit
 
-public extension UITableView {
+extension UITableView {
 
-    public func registerCell<T: UITableViewCell>(_: T.Type) {
+    func registerCell<T: UITableViewCell>(_: T.Type) {
         register(T.self, forCellReuseIdentifier: T.identifier)
     }
 
-    public func registerNib<T: UITableViewCell>(_: T.Type) {
+    func registerNib<T: UITableViewCell>(_: T.Type) {
         register(UINib(nibName: T.identifier, bundle: Bundle(for: type(of: T()) as AnyClass)), forCellReuseIdentifier: T.identifier)
     }
 
-}
+    func dequeueCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
+        return dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as! T
+    }
 
+}

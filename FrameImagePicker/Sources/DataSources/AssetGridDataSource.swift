@@ -52,7 +52,7 @@ class AssetGridDataSource: NSObject, AssetGridDataProviding {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let assetCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: AssetGridCollectionViewCell.identifier, for: indexPath) as? AssetGridCollectionViewCell else { fatalError("Cannot dequeue AssetGridCollectionViewCell")}
+        let assetCollectionViewCell: AssetGridCollectionViewCell = collectionView.dequeueCell(forIndexPath: indexPath)
         let asset = fetchResult.object(at: indexPath.item)
         let shouldSelect = assetManager.containsAsset(asset)
         assetCollectionViewCell.configure(asset: asset, isSelected: shouldSelect)
