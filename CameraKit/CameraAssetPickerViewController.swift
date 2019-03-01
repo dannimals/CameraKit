@@ -42,6 +42,7 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
         super.viewWillAppear(animated)
 
         updateDoneButtonIfNeeded()
+        updateTitleIfNeeded()
     }
 
     func setupViews() {
@@ -55,6 +56,7 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = .customBlack
         UINavigationBar.appearance().tintColor = .gray400
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.gray400]
     }
 
     private func setupTableView() {
@@ -92,6 +94,10 @@ public final class CameraAssetPickerViewController: UIViewController, ViewStyleP
 
     private func updateDoneButtonIfNeeded() {
         doneButton?.isEnabled = dataSource.hasAssets
+    }
+
+    private func updateTitleIfNeeded() {
+        title = dataSource.assetDescription
     }
 
 }

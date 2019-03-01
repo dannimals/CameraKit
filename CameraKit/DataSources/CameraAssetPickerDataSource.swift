@@ -5,6 +5,7 @@ import UIKit
 protocol CameraAssetPickerDataProviding:  UITableViewDataSource {
 
     var assetManager: AssetManaging { get }
+    var assetDescription: String? { get }
     var hasAssets: Bool { get }
     var finalizedAssets: [PHAsset] { get }
     var sectionLocalizedTitles: [String] { get }
@@ -31,10 +32,8 @@ class CameraAssetPickerDataSource: NSObject, CameraAssetPickerDataProviding {
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
     private var tableViewSections: [Section] = []
 
-    var hasAssets: Bool {
-        return !assetManager.assets.isEmpty
-    }
-
+    var assetDescription: String? { return assetManager.assetDescription }
+    var hasAssets: Bool { return !assetManager.assets.isEmpty }
     var finalizedAssets: [PHAsset] {
         return assetManager.finalizeAndClearAssets().compactMap { $0 as? PHAsset }
     }

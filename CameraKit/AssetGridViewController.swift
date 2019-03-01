@@ -14,11 +14,15 @@ class AssetGridViewController: UIViewController, ViewStylePreparing {
 
     func configure(dataSource: AssetGridDataSource) {
         self.dataSource = dataSource
-        dataSource.assetManager.delegate = self
+        dataSource.delegate = self
     }
 
     private func updateDoneButtonIfNeeded() {
         doneButton?.isEnabled = dataSource.hasAssets
+    }
+
+    private func updateTitleIfNeeded() {
+        title = dataSource.assetDescription
     }
 
     override func viewDidLoad() {
@@ -43,6 +47,10 @@ class AssetGridViewController: UIViewController, ViewStylePreparing {
         setupNavigationButtons()
         setupGridView()
         updateDoneButtonIfNeeded()
+    }
+
+    func setupText() {
+        updateTitleIfNeeded()
     }
 
     private func setupNavigationButtons() {
@@ -84,7 +92,8 @@ class AssetGridViewController: UIViewController, ViewStylePreparing {
 
 extension AssetGridViewController: AssetManagerDelegate {
 
-    func assetManager(_ assetManager: AssetManaging, didSelectAssets: [SelectableAsset]) {
+    func assetManager(_ assetManager: AssetManaging, didSelectAssets assets: [SelectableAsset]) {
+        updateTitleIfNeeded()
         updateDoneButtonIfNeeded()
     }
 

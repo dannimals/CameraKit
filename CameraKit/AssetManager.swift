@@ -3,7 +3,7 @@ import UIKit
 
 protocol AssetManagerDelegate: class {
 
-    func assetManager(_ assetManager: AssetManaging, didSelectAssets: [SelectableAsset])
+    func assetManager(_ assetManager: AssetManaging, didSelectAssets assets: [SelectableAsset])
 
 }
 
@@ -11,6 +11,7 @@ protocol AssetManaging {
 
     var assets: [SelectableAsset] { get }
     var delegate: AssetManagerDelegate? { get set }
+    var assetDescription: String? { get }
 
     func addAsset(_ asset: SelectableAsset)
     func containsAsset(_ asset: SelectableAsset) -> Bool
@@ -23,6 +24,11 @@ class AssetManager: AssetManaging {
 
     private(set) var assetMap: [String: SelectableAsset] = [:]
     var assets: [SelectableAsset] { return Array(assetMap.values) }
+    var assetDescription: String? {
+        let itemString = assets.count == 1 ? NSLocalizedString("item selected", comment: "") : NSLocalizedString("items selected", comment: "")
+        let title = assets.count > 0 ? "\(assets.count) \(itemString)" : nil
+        return title
+    }
 
     weak var delegate: AssetManagerDelegate?
 

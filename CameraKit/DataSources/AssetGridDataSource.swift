@@ -4,6 +4,9 @@ import UIKit
 
 protocol AssetGridDataProviding: UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var delegate: AssetManagerDelegate? { get set }
+
+    var assetDescription: String? { get }
     var hasAssets: Bool { get }
     var finalizedAssets: [PHAsset] { get }
 
@@ -14,12 +17,16 @@ class AssetGridDataSource: NSObject, AssetGridDataProviding {
     let fetchResult: PHFetchResult<PHAsset>!
     var assetManager: AssetManaging
 
-    var hasAssets: Bool {
-        return !assetManager.assets.isEmpty
-    }
-
+    var assetDescription: String? { return assetManager.assetDescription }
+    var hasAssets: Bool { return !assetManager.assets.isEmpty }
     var finalizedAssets: [PHAsset] {
         return assetManager.finalizeAndClearAssets().compactMap { $0 as? PHAsset }
+    }
+
+    weak var delegate: AssetManagerDelegate? {
+        didSet {
+            assetManager.delegate = delegate
+        }
     }
 
     init(assetCollection: PHAssetCollection, assetManager: AssetManaging) {
