@@ -8,7 +8,7 @@ public extension UITableView {
     }
 
     public func registerNib<T: UITableViewCell>(_: T.Type) {
-        register(UINib(nibName: T.identifier, bundle: nil), forCellReuseIdentifier: T.identifier)
+        register(UINib(nibName: T.identifier, bundle: Bundle(for: type(of: T()) as AnyClass)), forCellReuseIdentifier: T.identifier)
     }
 
 }

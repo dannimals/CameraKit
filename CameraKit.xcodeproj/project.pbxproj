@@ -10,30 +10,30 @@
 		9E3743012224813B0052F98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743002224813B0052F98C /* AppDelegate.swift */; };
 		9E3743032224813B0052F98C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743022224813B0052F98C /* ViewController.swift */; };
 		9E3743062224813B0052F98C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743042224813B0052F98C /* Main.storyboard */; };
-		9E3743082224813D0052F98C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743072224813D0052F98C /* Assets.xcassets */; };
 		9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743092224813D0052F98C /* LaunchScreen.storyboard */; };
 		9E3743162224813E0052F98C /* CameraKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743152224813E0052F98C /* CameraKitTests.swift */; };
-		9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743202224871B0052F98C /* AssetGridViewController.swift */; };
-		9E37432322248C840052F98C /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* ImagePickerViewController.swift */; };
-		9E374325222497060052F98C /* AlbumListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374324222497060052F98C /* AlbumListTableViewCell.swift */; };
-		9E374327222497600052F98C /* AlbumListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E374326222497600052F98C /* AlbumListTableViewCell.xib */; };
-		9E374329222498550052F98C /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374328222498550052F98C /* UITableView+Additions.swift */; };
-		9E37432B222498800052F98C /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432A222498800052F98C /* UIView+Additions.swift */; };
-		9E37432D22249E650052F98C /* AssetGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432C22249E650052F98C /* AssetGridCollectionViewCell.swift */; };
-		9E37432F22249EF10052F98C /* AssetGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E37432E22249EF10052F98C /* AssetGridCollectionViewCell.xib */; };
-		9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433222249FF60052F98C /* UICollectionView+Additions.swift */; };
-		9E3743352225D00A0052F98C /* SelectionBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743342225D0090052F98C /* SelectionBubble.swift */; };
-		9E3743372225D0690052F98C /* Color+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743362225D0690052F98C /* Color+Additions.swift */; };
-		9E3743392225F3310052F98C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743382225F3310052F98C /* AssetManager.swift */; };
-		9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */; };
-		9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */; };
-		9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */; };
-		9E50FEF22227783E001048D1 /* ImagePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEF12227783E001048D1 /* ImagePickerDataSource.swift */; };
 		9E5812A522298F9800B062B6 /* FrameImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58129C22298F9800B062B6 /* FrameImagePicker.framework */; };
 		9E5812AC22298F9900B062B6 /* FrameImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5812AB22298F9900B062B6 /* FrameImagePickerTests.swift */; };
 		9E5812AE22298F9900B062B6 /* FrameImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E58129E22298F9800B062B6 /* FrameImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E5812B122298F9900B062B6 /* FrameImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58129C22298F9800B062B6 /* FrameImagePicker.framework */; };
 		9E5812B222298F9900B062B6 /* FrameImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E58129C22298F9800B062B6 /* FrameImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E5812C22229967D00B062B6 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743382225F3310052F98C /* AssetManager.swift */; };
+		9E5812C32229968900B062B6 /* AssetGridDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEEF22273C1C001048D1 /* AssetGridDataSource.swift */; };
+		9E5812C42229968E00B062B6 /* ImagePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEF12227783E001048D1 /* ImagePickerDataSource.swift */; };
+		9E5812C52229969300B062B6 /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743202224871B0052F98C /* AssetGridViewController.swift */; };
+		9E5812C62229969700B062B6 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432222248C840052F98C /* ImagePickerViewController.swift */; };
+		9E5812C72229969C00B062B6 /* AssetGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432C22249E650052F98C /* AssetGridCollectionViewCell.swift */; };
+		9E5812C8222996A100B062B6 /* AlbumListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374324222497060052F98C /* AlbumListTableViewCell.swift */; };
+		9E5812CA222996A800B062B6 /* SelectionBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743342225D0090052F98C /* SelectionBubble.swift */; };
+		9E5812CB222996AE00B062B6 /* Color+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743362225D0690052F98C /* Color+Additions.swift */; };
+		9E5812CC222996B100B062B6 /* PHAsset+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433A2225F3F30052F98C /* PHAsset+Additions.swift */; };
+		9E5812CD222996B400B062B6 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37433222249FF60052F98C /* UICollectionView+Additions.swift */; };
+		9E5812CE222996B700B062B6 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E374328222498550052F98C /* UITableView+Additions.swift */; };
+		9E5812CF222996BA00B062B6 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432A222498800052F98C /* UIView+Additions.swift */; };
+		9E5812D0222996BD00B062B6 /* ViewStylePreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50FEE32226E4F7001048D1 /* ViewStylePreparing.swift */; };
+		9E5812D22229987100B062B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743072224813D0052F98C /* Assets.xcassets */; };
+		9E5812D6222999B200B062B6 /* AlbumListTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 9E374326222497600052F98C /* AlbumListTableViewCell.xib */; };
+		9E5812D722299F3800B062B6 /* AssetGridCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 9E37432E22249EF10052F98C /* AssetGridCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,7 +178,6 @@
 				9E37430C2224813D0052F98C /* Info.plist */,
 				9E3743002224813B0052F98C /* AppDelegate.swift */,
 				9E3743022224813B0052F98C /* ViewController.swift */,
-				9E3743072224813D0052F98C /* Assets.xcassets */,
 				9E3743092224813D0052F98C /* LaunchScreen.storyboard */,
 				9E3743042224813B0052F98C /* Main.storyboard */,
 			);
@@ -231,6 +230,7 @@
 		9E58129D22298F9800B062B6 /* FrameImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				9E3743072224813D0052F98C /* Assets.xcassets */,
 				9E5812BA22298FAD00B062B6 /* Sources */,
 				9E58129E22298F9800B062B6 /* FrameImagePicker.h */,
 				9E58129F22298F9800B062B6 /* Info.plist */,
@@ -241,6 +241,11 @@
 		9E5812AA22298F9900B062B6 /* FrameImagePickerTests */ = {
 			isa = PBXGroup;
 			children = (
+				9E5812C12229966000B062B6 /* ViewControllers */,
+				9E5812C02229965700B062B6 /* Extensions */,
+				9E5812BF2229965100B062B6 /* DataSources */,
+				9E5812BE222995E500B062B6 /* Managers */,
+				9E5812BD222995DF00B062B6 /* Views */,
 				9E5812AB22298F9900B062B6 /* FrameImagePickerTests.swift */,
 				9E5812AD22298F9900B062B6 /* Info.plist */,
 			);
@@ -274,6 +279,41 @@
 				9E3743382225F3310052F98C /* AssetManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		9E5812BD222995DF00B062B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E5812BE222995E500B062B6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9E5812BF2229965100B062B6 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		9E5812C02229965700B062B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E5812C12229966000B062B6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,9 +457,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E37430B2224813D0052F98C /* LaunchScreen.storyboard in Resources */,
-				9E3743082224813D0052F98C /* Assets.xcassets in Resources */,
-				9E37432F22249EF10052F98C /* AssetGridCollectionViewCell.xib in Resources */,
-				9E374327222497600052F98C /* AlbumListTableViewCell.xib in Resources */,
 				9E3743062224813B0052F98C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5812D22229987100B062B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,22 +490,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E374325222497060052F98C /* AlbumListTableViewCell.swift in Sources */,
-				9E37433B2225F3F30052F98C /* PHAsset+Additions.swift in Sources */,
 				9E3743032224813B0052F98C /* ViewController.swift in Sources */,
-				9E3743372225D0690052F98C /* Color+Additions.swift in Sources */,
 				9E3743012224813B0052F98C /* AppDelegate.swift in Sources */,
-				9E3743392225F3310052F98C /* AssetManager.swift in Sources */,
-				9E37432D22249E650052F98C /* AssetGridCollectionViewCell.swift in Sources */,
-				9E374329222498550052F98C /* UITableView+Additions.swift in Sources */,
-				9E37433322249FF60052F98C /* UICollectionView+Additions.swift in Sources */,
-				9E3743212224871B0052F98C /* AssetGridViewController.swift in Sources */,
-				9E50FEF22227783E001048D1 /* ImagePickerDataSource.swift in Sources */,
-				9E37432B222498800052F98C /* UIView+Additions.swift in Sources */,
-				9E50FEE42226E4F7001048D1 /* ViewStylePreparing.swift in Sources */,
-				9E3743352225D00A0052F98C /* SelectionBubble.swift in Sources */,
-				9E50FEF022273C1C001048D1 /* AssetGridDataSource.swift in Sources */,
-				9E37432322248C840052F98C /* ImagePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +507,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5812D722299F3800B062B6 /* AssetGridCollectionViewCell.xib in Sources */,
+				9E5812D6222999B200B062B6 /* AlbumListTableViewCell.xib in Sources */,
+				9E5812CC222996B100B062B6 /* PHAsset+Additions.swift in Sources */,
+				9E5812C8222996A100B062B6 /* AlbumListTableViewCell.swift in Sources */,
+				9E5812C42229968E00B062B6 /* ImagePickerDataSource.swift in Sources */,
+				9E5812CA222996A800B062B6 /* SelectionBubble.swift in Sources */,
+				9E5812C72229969C00B062B6 /* AssetGridCollectionViewCell.swift in Sources */,
+				9E5812C62229969700B062B6 /* ImagePickerViewController.swift in Sources */,
+				9E5812C52229969300B062B6 /* AssetGridViewController.swift in Sources */,
+				9E5812C22229967D00B062B6 /* AssetManager.swift in Sources */,
+				9E5812CB222996AE00B062B6 /* Color+Additions.swift in Sources */,
+				9E5812CE222996B700B062B6 /* UITableView+Additions.swift in Sources */,
+				9E5812C32229968900B062B6 /* AssetGridDataSource.swift in Sources */,
+				9E5812D0222996BD00B062B6 /* ViewStylePreparing.swift in Sources */,
+				9E5812CF222996BA00B062B6 /* UIView+Additions.swift in Sources */,
+				9E5812CD222996B400B062B6 /* UICollectionView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +698,7 @@
 		9E37431B2224813E0052F98C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D429SHX3Y;
@@ -676,6 +717,7 @@
 		9E37431C2224813E0052F98C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D429SHX3Y;
@@ -740,10 +782,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6D429SHX3Y;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = FrameImagePicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -754,6 +797,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.frameio.FrameImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -768,10 +812,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6D429SHX3Y;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = FrameImagePicker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -782,6 +827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.frameio.FrameImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

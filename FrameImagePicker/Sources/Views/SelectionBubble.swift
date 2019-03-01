@@ -8,7 +8,7 @@ final class SelectionBubble: UIControl {
     private(set) var deselectedColor: UIColor = .clear
     private(set) var borderSelectedColor: CGColor = UIColor.clear.cgColor
     private(set) var borderDeselectedColor: CGColor = UIColor.white.cgColor
-    private(set) var selectedImage: UIImage? = UIImage(named: "Done")
+    private(set) var selectedImage: UIImage? = UIImage(named: "Done", in: Bundle(for: SelectionBubble.self), compatibleWith: nil)
     private(set) var deselectedImage: UIImage? = nil
 
     fileprivate var image: UIImage? { return isSelected ? selectedImage : deselectedImage }
