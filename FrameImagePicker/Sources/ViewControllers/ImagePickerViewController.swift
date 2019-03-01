@@ -28,7 +28,7 @@ public final class ImagePickerViewController: UIViewController, ViewStylePrepari
 
     let assetTableView = UITableView(frame: .zero, style: .grouped)
     var doneButton: UIBarButtonItem!
-    var dataSource: CameraAssetPickerDataProviding!
+    var dataSource: ImagePickerDataProviding!
 
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

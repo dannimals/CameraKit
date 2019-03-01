@@ -2,7 +2,7 @@
 import PhotosUI
 import UIKit
 
-protocol CameraAssetPickerDataProviding:  UITableViewDataSource {
+protocol ImagePickerDataProviding: UITableViewDataSource {
 
     var assetManager: AssetManaging { get }
     var assetDescription: String? { get }
@@ -15,7 +15,7 @@ protocol CameraAssetPickerDataProviding:  UITableViewDataSource {
 
 }
 
-class ImagePickerDataSource: NSObject, CameraAssetPickerDataProviding {
+class ImagePickerDataSource: NSObject, ImagePickerDataProviding {
 
     enum Section: Int {
         case allPhotos = 0

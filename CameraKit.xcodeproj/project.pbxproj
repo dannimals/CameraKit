@@ -15,6 +15,11 @@
 		9E21CC922229ABC1002D4435 /* ColorAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC912229ABC1002D4435 /* ColorAdditionsTests.swift */; };
 		9E21CC952229AF10002D4435 /* SelectableAssetMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC942229AF10002D4435 /* SelectableAssetMock.swift */; };
 		9E21CC972229B2FF002D4435 /* AlbumListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC962229B2FF002D4435 /* AlbumListTableViewCell.swift */; };
+		9E21CC992229C264002D4435 /* AssetManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC982229C264002D4435 /* AssetManagerTests.swift */; };
+		9E21CC9B2229C29E002D4435 /* AssetManagerDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC9A2229C29E002D4435 /* AssetManagerDelegateMock.swift */; };
+		9E21CC9D2229C54D002D4435 /* AssetGridDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC9C2229C54D002D4435 /* AssetGridDataSourceTests.swift */; };
+		9E21CC9F2229C5F3002D4435 /* AssetManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CC9E2229C5F3002D4435 /* AssetManagerMock.swift */; };
+		9E21CCA12229C988002D4435 /* ImagePickerDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E21CCA02229C988002D4435 /* ImagePickerDataSourceTests.swift */; };
 		9E3743012224813B0052F98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743002224813B0052F98C /* AppDelegate.swift */; };
 		9E3743032224813B0052F98C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3743022224813B0052F98C /* ViewController.swift */; };
 		9E3743062224813B0052F98C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3743042224813B0052F98C /* Main.storyboard */; };
@@ -98,6 +103,11 @@
 		9E21CC912229ABC1002D4435 /* ColorAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdditionsTests.swift; sourceTree = "<group>"; };
 		9E21CC942229AF10002D4435 /* SelectableAssetMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableAssetMock.swift; sourceTree = "<group>"; };
 		9E21CC962229B2FF002D4435 /* AlbumListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListTableViewCell.swift; sourceTree = "<group>"; };
+		9E21CC982229C264002D4435 /* AssetManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManagerTests.swift; sourceTree = "<group>"; };
+		9E21CC9A2229C29E002D4435 /* AssetManagerDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManagerDelegateMock.swift; sourceTree = "<group>"; };
+		9E21CC9C2229C54D002D4435 /* AssetGridDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetGridDataSourceTests.swift; sourceTree = "<group>"; };
+		9E21CC9E2229C5F3002D4435 /* AssetManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManagerMock.swift; sourceTree = "<group>"; };
+		9E21CCA02229C988002D4435 /* ImagePickerDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerDataSourceTests.swift; sourceTree = "<group>"; };
 		9E3742FD2224813B0052F98C /* CameraKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3743002224813B0052F98C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E3743022224813B0052F98C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +179,8 @@
 		9E21CC932229AEEF002D4435 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				9E21CC9A2229C29E002D4435 /* AssetManagerDelegateMock.swift */,
+				9E21CC9E2229C5F3002D4435 /* AssetManagerMock.swift */,
 				9E21CC942229AF10002D4435 /* SelectableAssetMock.swift */,
 			);
 			path = Mocks;
@@ -266,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				9E21CC932229AEEF002D4435 /* Mocks */,
-				9E5812C12229966000B062B6 /* ViewControllers */,
 				9E5812C02229965700B062B6 /* Extensions */,
 				9E5812BF2229965100B062B6 /* DataSources */,
 				9E5812BE222995E500B062B6 /* Managers */,
@@ -317,6 +328,7 @@
 		9E5812BE222995E500B062B6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9E21CC982229C264002D4435 /* AssetManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -324,6 +336,8 @@
 		9E5812BF2229965100B062B6 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				9E21CC9C2229C54D002D4435 /* AssetGridDataSourceTests.swift */,
+				9E21CCA02229C988002D4435 /* ImagePickerDataSourceTests.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -339,13 +353,6 @@
 				9E21CC8F2229AA76002D4435 /* ViewStylePreparingTests.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9E5812C12229966000B062B6 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,11 +570,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5812AC22298F9900B062B6 /* AssetGridCollectionViewCellTests.swift in Sources */,
+				9E21CC9F2229C5F3002D4435 /* AssetManagerMock.swift in Sources */,
+				9E21CC9D2229C54D002D4435 /* AssetGridDataSourceTests.swift in Sources */,
 				9E21CC902229AA76002D4435 /* ViewStylePreparingTests.swift in Sources */,
+				9E21CCA12229C988002D4435 /* ImagePickerDataSourceTests.swift in Sources */,
+				9E21CC992229C264002D4435 /* AssetManagerTests.swift in Sources */,
 				9E21CC8A2229A7E5002D4435 /* PHAssetAdditionsTests.swift in Sources */,
 				9E21CC8C2229A8E2002D4435 /* UICollectionViewAdditionsTests.swift in Sources */,
 				9E21CC882229A6DB002D4435 /* UITableViewAdditionsTests.swift in Sources */,
 				9E21CC972229B2FF002D4435 /* AlbumListTableViewCell.swift in Sources */,
+				9E21CC9B2229C29E002D4435 /* AssetManagerDelegateMock.swift in Sources */,
 				9E21CC922229ABC1002D4435 /* ColorAdditionsTests.swift in Sources */,
 				9E21CC952229AF10002D4435 /* SelectableAssetMock.swift in Sources */,
 				9E21CC8E2229AA39002D4435 /* UIViewAdditionsTests.swift in Sources */,
