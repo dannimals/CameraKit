@@ -9,11 +9,14 @@ public protocol ImagePickerDelegate: class {
 }
 
 public enum ImagePickerError: Error {
+
     case invalidPermission
+    case photoLibraryNotAvailable
 
     public var localizedDescription: String {
         switch self {
-        default: return "You must first obtain photo access permission from user."
+        case .invalidPermission: return "You must first obtain photo access permission from user."
+        case .photoLibraryNotAvailable: return "The Photo Library is unavailable."
         }
     }
 }
@@ -41,6 +44,7 @@ public final class ImagePickerViewController: UIViewController, ViewStylePrepari
 
     func commonInit() throws {
         guard PHPhotoLibrary.authorizationStatus() == .authorized else { throw ImagePickerError.invalidPermission }
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { throw ImagePickerError.photoLibraryNotAvailable }
         let assetManager = AssetManager()
         dataSource = ImagePickerDataSource(assetManager: assetManager)
     }

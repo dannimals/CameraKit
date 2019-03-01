@@ -1,4 +1,5 @@
 
+import FrameImagePicker
 import PhotosUI
 import UIKit
 
@@ -16,7 +17,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
-        presentImagePicker()
+        PHPhotoLibrary.requestAuthorization { [weak self] authorizationStatus in
+            guard authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                self?.presentImagePicker()
+            }
+        }
     }
 
 }
@@ -24,7 +30,6 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func presentImagePicker() {
-        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
         let imagePickerActionSheet = UIAlertController(title: "Browse photos",
                                                        message: nil, preferredStyle: .actionSheet)
         let libraryButton = UIAlertAction(title: "Camera roll", style: .default) { [unowned self] _ in
